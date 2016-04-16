@@ -33,4 +33,12 @@ trait Configuration {
 
   /** Password for specified user and database. */
   lazy val dbPassword = Try(config.getString("db.password")).toOption.orNull
+
+  lazy val inmemdbUrl = Try(config.getString("inmemdb.url")).toOption
+
+  lazy val inmemdbDriver = Try(config.getString("inmemdb.driver")).toOption
+
+  lazy val inmemdbConnectionPool = Try(config.getString("inmemdb.connectionPool")).toOption
+
+  lazy val inmemdbKeepAliveConnection = Try(config.getBoolean("inmemdb.keepAliveConnection")).toOption
 }
