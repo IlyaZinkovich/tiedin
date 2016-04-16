@@ -1,10 +1,8 @@
 package com.tiedin.boot
 
-import akka.actor.{ActorSystem, Props}
-import akka.io.IO
-import com.tiedin.api.RestServiceActor
+import akka.actor.ActorSystem
+//import com.tiedin.api.RestServiceActor
 import com.tiedin.config.Configuration
-import spray.can.Http
 
 object Boot extends App with Configuration {
 
@@ -12,8 +10,8 @@ object Boot extends App with Configuration {
   implicit val system = ActorSystem("rest-service-example")
 
   // create and start rest service actor
-  val restService = system.actorOf(Props[RestServiceActor], "rest-endpoint")
+//  val restService = system.actorOf(Props[RestServiceActor], "rest-endpoint")
 
   // start HTTP server with rest service actor as a handler
-  IO(Http) ! Http.Bind(restService, serviceHost, servicePort)
+//  IO(Http) ! Http.Bind(restService, serviceHost, servicePort)
 }
